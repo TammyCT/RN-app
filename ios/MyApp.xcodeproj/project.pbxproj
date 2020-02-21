@@ -188,7 +188,6 @@
 			children = (
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		F0F6D5BE268E55DCD94E57DB /* Pods */ = {
@@ -203,7 +202,6 @@
 				5605F630793DD8F156FB20A2 /* Pods-MyAppTests.debug.xcconfig */,
 				902E5D8B1AF3E050CA4433D2 /* Pods-MyAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -318,6 +316,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

@@ -1,6 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import { ThemeProvider } from 'react-native-elements';
 
 import HomePage from './page/home-page';
