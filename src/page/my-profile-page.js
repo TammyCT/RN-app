@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import { Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
+import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createStackNavigator, createAppContainer } from '@react-navigation/stack';
+import LoginPage from './login-signUp-page'
+
+const Stack = createStackNavigator();
 
 export default class MyProfileComponent extends Component {
+
+    accessToLoginPage(){
+        console.log('press')
+        // Stack.navigate(LoginPage)
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -10,43 +20,47 @@ export default class MyProfileComponent extends Component {
                     <Button
                         buttonStyle={{backgroundColor: '#23B2BE'}}
                         title="Login / Sign Up"
+                        onPress={() => this.accessToLoginPage()}
                     />
                 </View>
                 <View style={styles.listContainer}>
                     <View style={styles.list}>
-                        <Text>
+                        <MIcon name={'account-multiple'} size={30} color={'#ffcc00'}/>
+                        <Text style={styles.listText}>
                             My Friend
                         </Text>
                     </View>
                     <View style={styles.list}>
-                        <Text>
+                        <MIcon name={'history'} size={30} color={'#3399ff'}/>
+                        <Text style={styles.listText}>
                             History
                         </Text>
                     </View>
                     <View style={styles.list}>
-                        <Text>
+                        <MIcon name={'ticket-confirmation'} size={30} color={'#cc3333'}/>
+                        <Text style={styles.listText}>
                             My coupons
                         </Text>
                     </View>
                     <View style={styles.list}>
-                        <Text>
+                        <MIcon name={'inbox-multiple'} size={30} color={'#009900'}/>
+                        <Text style={styles.listText}>
                             Inbox
                         </Text>
                     </View>
                     <View style={styles.list}>
-                        <Text>
+                        <MIcon name={'phone-classic'} size={30} color={'#ff9933'}/>
+                        <Text style={styles.listText}>
                             Contact us
                         </Text>
                     </View>
                     <View style={styles.list}>
-                        <Text>
+                        <MIcon name={'cogs'} size={30} color={'#660099'}/>
+                        <Text style={styles.listText}>
                             Setting
                         </Text>
                     </View>
-
-
                 </View>
-
             </View>
         );
     }
@@ -79,7 +93,12 @@ const styles = StyleSheet.create({
         height: 50,
         borderBottomWidth: 2,
         borderColor: '#DDDDDD',
-        justifyContent: 'center',
-        padding: 5
+        // justifyContent: 'center',
+        padding: 5,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    listText: {
+        marginLeft: 10
     }
 })

@@ -6,6 +6,7 @@ import HomePage from './page/home-page';
 import MyProfilePage from './page/my-profile-page';
 import PromotionPage from './page/promotion-page';
 import GamePage from './page/game-page';
+import LoginPage from './page/login-signUp-page'
 
 import HeaderBar from './ui-library/header-bar'
 
@@ -19,11 +20,12 @@ export default class RouterComponent extends Component {
             <ThemeProvider>
                 <HeaderBar/>
                 <NavigationContainer>
-                    <Tab.Navigator>
+                    <Tab.Navigator initialRouteName={'Home'}>
                         <Tab.Screen name="Home" component={HomePage} />
                         <Tab.Screen name="Promotion" component={PromotionPage} />
                         <Tab.Screen name="Game" component={GamePage} />
                         <Tab.Screen name="My Profile" component={MyProfilePage} />
+                        {/*<Tab.Screen name="Test Login" component={LoginPage} />*/}
                     </Tab.Navigator>
                 </NavigationContainer>
             </ThemeProvider>
