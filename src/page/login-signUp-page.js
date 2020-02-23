@@ -4,7 +4,7 @@ import { ButtonGroup } from 'react-native-elements';
 import Login from './information-page/login-page';
 import SignUp from './information-page/sign-up-page'
 
-export default class LoginSignUpComponet extends Component {
+export default class LoginSignUpComponent extends Component {
     constructor () {
         super()
         this.state = {
@@ -40,7 +40,6 @@ export default class LoginSignUpComponet extends Component {
             </ScrollView>
         )
     }
-
 
 }
 

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Header, Avatar, Icon } from 'react-native-elements';
-import {
-    View, Text
-} from 'react-native'
 
 export default class HeaderComponent extends Component {
 
@@ -19,7 +16,6 @@ export default class HeaderComponent extends Component {
         // console.log(this.getAvatar())
         return (
             <Header
-
                 containerStyle={{
                     backgroundColor: '#23B2BE',
                     justifyContent: 'space-around',

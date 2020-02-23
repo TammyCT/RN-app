@@ -25,7 +25,7 @@ export default class RouterComponent extends Component {
                         <Tab.Screen name="Promotion" component={PromotionPage} />
                         <Tab.Screen name="Game" component={GamePage} />
                         <Tab.Screen name="My Profile" component={MyProfilePage} />
-                        {/*<Tab.Screen name="Test Login" component={LoginPage} />*/}
+                        <Tab.Screen name="Test Login" component={LoginPage}/>
                     </Tab.Navigator>
                 </NavigationContainer>
             </ThemeProvider>

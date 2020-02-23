@@ -8,8 +8,10 @@ export default class LoginComponent extends Component {
     render(){
         return(
             <View style={styles.inputOuter}>
+
                 <Input
-                    placeholder='INPUT YOUR PHONE NUMBER'
+                    placeholder='Phone Number'
+                    dataDetectorTypes='phoneNumber'
                     leftIcon={
                         <Icon
                             name='mobile-phone'
@@ -20,7 +22,7 @@ export default class LoginComponent extends Component {
                     }
                 />
                 <Input
-                    placeholder='INPUT YOUR PASSWORD'
+                    placeholder='Password'
                     secureTextEntry={true}
                     leftIcon={
                         <Icon
