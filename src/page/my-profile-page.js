@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, TouchableHighlight, Text} from 'react-native';
+import {StyleSheet, View, TouchableHighlight, Text, DeviceEventEmitter} from 'react-native';
 import { Button } from 'react-native-elements';
 import List from '../ui-library/profile-list';
 
 let nav;
+let userInfo;
 
 function accessToLoginPage(navigation){
     console.log(navigation)
@@ -14,18 +15,49 @@ function accessTo(pageName) {
     nav.navigate(pageName)
 }
 
+function getUserInfo() {
+    DeviceEventEmitter.addListener('userInfo',(e)=>{
+        if(e){
+            userInfo = e;
+            nav.navigate('center')
+        }
+    });
+};
+
 
 export default function ProfileCenterScreen({navigation}) {
     nav = navigation;
-    return (
-        <View style={styles.container}>
-
-            <View style={styles.btnContainer}>
+    getUserInfo();
+    let test1;
+    if(userInfo){
+        test1 = (
+            {/*<Text>ggg</Text>*/}
+        )
+    }else{
+        test1 = (
+            <View>
                 <Button
                     buttonStyle={{backgroundColor: '#23B2BE'}}
                     title="Login / Sign Up"
                     onPress={() => accessToLoginPage(navigation)}
                 />
+            </View>
+
+        )
+    }
+    return (
+        <View style={styles.container}>
+
+            <View style={styles.btnContainer}>
+                {/*{*/}
+                {/*    !userInfo &&*/}
+                {/*    <Button*/}
+                {/*        buttonStyle={{backgroundColor: '#23B2BE'}}*/}
+                {/*        title="Login / Sign Up"*/}
+                {/*        onPress={() => accessToLoginPage(navigation)}*/}
+                {/*    />*/}
+                {/*}*/}
+                {test1}
             </View>
             <View style={styles.listContainer}>
                 <List iconName='account-multiple' color='#ffcc00' content='My Friends' pageName='friend' accessTo= {accessTo.bind(this)}/>
@@ -59,4 +91,4 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         marginTop: 20
     }
-})
+});

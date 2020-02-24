@@ -10,7 +10,7 @@ import LoginPage from './page/center-sub-page/login-signUp-page';
 import FriendPage from './page/center-sub-page/friend-page';
 import HistoryPage from './page/center-sub-page/history-page';
 import CouponsPage from './page/center-sub-page/coupons-page';
-import ContactPage from './page/center-sub-page/contact-page';
+import ContactPage from './page/center-sub-page/message-page';
 import InboxPage from './page/center-sub-page/inbox-page';
 import SettingPage from './page/center-sub-page/settings-page';
 
@@ -89,12 +89,12 @@ function HomeStackScreen() {
 }
 function PromotionStackScreen() {
     return (
-        <StackScreen screenList={PAGE_INFO.gameInfo}/>
+        <StackScreen screenList={PAGE_INFO.promotionInfo}/>
     );
 }
 function GameStackScreen() {
     return (
-        <StackScreen screenList={PAGE_INFO.promotionInfo}/>
+        <StackScreen screenList={PAGE_INFO.gameInfo}/>
     );
 }
 
@@ -109,7 +109,7 @@ export default function Router() {
     return (
         <NavigationContainer>
             <Tab.Navigator initialRouteName="Home">
-                <Tab.Screen name="Home" component={HomeStackScreen}  />
+                <Tab.Screen name="Home" component={HomeStackScreen}/>
                 <Tab.Screen name="Promotion" component={PromotionStackScreen} />
                 <Tab.Screen name="Game" component={GameStackScreen} />
                 <Tab.Screen name="My Center" component={MyProfileStackScreen} />
