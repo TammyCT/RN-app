@@ -1,89 +1,106 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomePage from './page/home-page';
 import MyProfilePage from './page/my-profile-page';
 import PromotionPage from './page/promotion-page';
 import GamePage from './page/game-page';
-import LoginPage from './page/login-signUp-page'
+import LoginPage from './page/center-sub-page/login-signUp-page';
+import FriendPage from './page/center-sub-page/friend-page';
+import HistoryPage from './page/center-sub-page/history-page';
+import CouponsPage from './page/center-sub-page/coupons-page';
+import ContactPage from './page/center-sub-page/contact-page';
+import InboxPage from './page/center-sub-page/inbox-page';
+import SettingPage from './page/center-sub-page/settings-page';
 
+import StackScreen from './ui-library/stack-screen'
 
-const HomeStack = createStackNavigator();
+const PAGE_INFO = {
+    homeInfo: [
+        {
+            title: 'FOOD MART',
+            name: 'home',
+            component: HomePage
+        }
+    ],
+    promotionInfo: [
+        {
+            title: 'Promotion',
+            name: 'Promotion',
+            component: PromotionPage
+        }
+    ],
+    gameInfo: [
+        {
+            title: 'Game',
+            name: 'Game',
+            component: GamePage
+        }
+    ],
+    centerInfo: [
+        {
+            title: 'My Center',
+            name: 'center',
+            component: MyProfilePage
+        },
+        {
+            title: 'Login / Sign Up',
+            name: 'Login / Sign Up',
+            component: LoginPage
+        },
+        {
+            title: 'My Friend',
+            name: 'friend',
+            component: FriendPage
+        },
+        {
+            title: 'History',
+            name: 'history',
+            component: HistoryPage
+        },
+        {
+            title: 'Contact Us',
+            name: 'contact',
+            component: ContactPage
+        },
+        {
+            title: 'Coupons',
+            name: 'coupons',
+            component: CouponsPage
+        },
+        {
+            title: 'Inbox',
+            name: 'inbox',
+            component: InboxPage
+        },
+        {
+            title: 'Settings',
+            name: 'settings',
+            component: SettingPage
+        },
+    ]
+}
+
 function HomeStackScreen() {
     return (
-        <HomeStack.Navigator>
-            <HomeStack.Screen
-                options={{
-                    title: 'FOOD MART',
-                    headerStyle: {
-                        backgroundColor: '#23B2BE',
-                    },
-                    headerTintColor: '#fff',
-                }}
-             name="Food Mart" component={HomePage} />
-        </HomeStack.Navigator>
+    <StackScreen screenList={PAGE_INFO.homeInfo}/>
     );
 }
-
-const PromotionStack = createStackNavigator();
 function PromotionStackScreen() {
     return (
-        <PromotionStack.Navigator>
-            <PromotionStack.Screen
-                options={{
-                    title: 'Promotion',
-                    headerStyle: {
-                        backgroundColor: '#23B2BE',
-                    },
-                    headerTintColor: '#fff',
-                }}
-                name="Promotion" component={PromotionPage} />
-        </PromotionStack.Navigator>
+        <StackScreen screenList={PAGE_INFO.gameInfo}/>
     );
 }
-
-const GameStack = createStackNavigator();
 function GameStackScreen() {
     return (
-        <GameStack.Navigator>
-            <GameStack.Screen
-                options={{
-                    title: 'Game',
-                    headerStyle: {
-                        backgroundColor: '#23B2BE',
-                    },
-                    headerTintColor: '#fff',
-                }}
-                name="Game" component={GamePage} />
-        </GameStack.Navigator>
+        <StackScreen screenList={PAGE_INFO.promotionInfo}/>
     );
 }
 
-const MyProfileStack = createStackNavigator();
 function MyProfileStackScreen() {
     return (
-        <MyProfileStack.Navigator>
-            <MyProfileStack.Screen
-                options={{
-                    title: 'My Center',
-                    headerStyle: {
-                        backgroundColor: '#23B2BE',
-                    },
-                    headerTintColor: '#fff',
-                }}
-                name="My Center" component={MyProfilePage} />
-            <MyProfileStack.Screen
-                options={{
-                    title: 'Login / Sign Up',
-                    headerStyle: {
-                        backgroundColor: '#23B2BE',
-                    },
-                    headerTintColor: '#fff',
-                }}
-                name="Login / Sign Up" component={LoginPage} />
-        </MyProfileStack.Navigator>
+        <StackScreen screenList={PAGE_INFO.centerInfo}/>
     );
 }
 
@@ -91,7 +108,7 @@ const Tab = createBottomTabNavigator();
 export default function Router() {
     return (
         <NavigationContainer>
-            <Tab.Navigator>
+            <Tab.Navigator initialRouteName="Home">
                 <Tab.Screen name="Home" component={HomeStackScreen}  />
                 <Tab.Screen name="Promotion" component={PromotionStackScreen} />
                 <Tab.Screen name="Game" component={GameStackScreen} />

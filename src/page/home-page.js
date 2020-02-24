@@ -4,6 +4,7 @@ import { ActivityIndicator } from 'react-native';
 import { Image, Avatar } from 'react-native-elements';
 
 export default class HomeComponent extends Component {
+
     render() {
         return (
             <ScrollView>

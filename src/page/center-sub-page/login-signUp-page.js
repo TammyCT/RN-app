@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Image, ScrollView, StyleSheet} from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
-import Login from './information-page/login-page';
-import SignUp from './information-page/sign-up-page'
+import Login from '../information-page/login-page';
+import SignUp from '../information-page/sign-up-page'
 
 export default class LoginSignUpComponent extends Component {
     constructor () {
@@ -24,7 +24,7 @@ export default class LoginSignUpComponent extends Component {
         return (
             <ScrollView>
                 <Image
-                    source={require('../../assets/login/pic.jpg')}
+                    source={require('../../../assets/login/pic.jpg')}
                     style={styles.loginImage}
                 />
                 <ButtonGroup

@@ -1,48 +1,42 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import { Button, Icon, Image } from 'react-native-elements';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { ActivityIndicator } from 'react-native';
+import { Image, Avatar } from 'react-native-elements';
 
-export default class PromotionComponent extends Component {
-
+export default class PromotionScreen extends Component {
     render() {
-        // let promotionList = this.getPromotionList();
-        // console.log(promotionList)
-            return (
-            <View style={styles.container}>
-                {/*{*/}
-                {/*    promotionList.map((item,idx)=>{*/}
-                {/*        return(*/}
-                {/*            <View key={idx} >*/}
-                {/*                <Image resizeMode='stretch' source={item} />*/}
-                {/*            </View>*/}
+        return (
+            <ScrollView style={styles.promotionContainer}>
+                <Image
+                    source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/promotion/promotion1.png' }}
+                    style={styles.homeImage}
+                />
+                <Image
+                    source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/promotion/promotion1.png' }}
+                    style={styles.homeImage}
+                />
+            </ScrollView>
 
-                {/*        )*/}
-                {/*    })*/}
-                {/*}*/}
-            </View>
         );
     }
 
-    getPromotionList(){
-        return fetch('https://www.fastmock.site/mock/1adff00ec21770e22911e12780c3f45a/foodMart/promotionList')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                return responseJson.promotionList;
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }
 
 }
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#FFEFDB',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    }
 
-})
+const styles = StyleSheet.create({
+    promotionContainer:{
+        flexDirection: 'column',
+        flex: 1
+    },
+    homeImage:{
+        height: 250,
+        // flex: 1,
+        // alignItems: 'center',
+        // justifyContent: 'center'
+        width: 200
+    },
+
+
+
+});
