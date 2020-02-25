@@ -24,11 +24,16 @@ function getUserInfo() {
     });
 };
 
+function showMain() {
+
+}
+
 
 export default function ProfileCenterScreen({navigation}) {
     nav = navigation;
     getUserInfo();
     let test1;
+
     if(userInfo){
         test1 = (
             {/*<Text>ggg</Text>*/}

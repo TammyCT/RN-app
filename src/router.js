@@ -13,6 +13,10 @@ import CouponsPage from './page/center-sub-page/coupons-page';
 import ContactPage from './page/center-sub-page/message-page';
 import InboxPage from './page/center-sub-page/inbox-page';
 import SettingPage from './page/center-sub-page/settings-page';
+import GroupPage from './page/home-sub-page/group-page';
+import NewsPage from './page/home-sub-page/news-page';
+import ProductPage from './page/home-sub-page/product-knowledge-page';
+import StoreListPage from './page/home-sub-page/store-list-page';
 
 import StackScreen from './ui-library/stack-screen'
 
@@ -22,6 +26,26 @@ const PAGE_INFO = {
             title: 'FOOD MART',
             name: 'home',
             component: HomePage
+        },
+        {
+            title: 'My Group',
+            name: 'group',
+            component: GroupPage
+        },
+        {
+            title: 'News',
+            name: 'news',
+            component: NewsPage
+        },
+        {
+            title: 'Product Knowledge',
+            name: 'product',
+            component: ProductPage
+        },
+        {
+            title: 'Store List',
+            name: 'store',
+            component: StoreListPage
         }
     ],
     promotionInfo: [

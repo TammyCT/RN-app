@@ -32,18 +32,22 @@ export default class LoginComponent extends Component {
                         />
                     }
                 />
-                <Input
-                    placeholder='Password'
-                    secureTextEntry={true}
-                    leftIcon={
-                        <Icon
-                            name='lock'
-                            size={24}
-                            color='black'
-                            style={{marginRight: 10}}
-                        />
-                    }
-                />
+                <View    style={{marginTop: 10}}>
+                    <Input
+
+                        placeholder='Password'
+                        secureTextEntry={true}
+                        leftIcon={
+                            <Icon
+                                name='lock'
+                                size={24}
+                                color='black'
+                                style={{marginRight: 10}}
+                            />
+                        }
+                    />
+                </View>
+
                 <Button style={styles.btn}
                     title="Login"
                     buttonStyle={{backgroundColor: '#23B2BE'}}

@@ -1,42 +1,62 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
-import { ActivityIndicator } from 'react-native';
-import { Image, Avatar } from 'react-native-elements';
+import React from 'react';
+import {FlatList, ActivityIndicator, Text, View, Image, StyleSheet} from 'react-native';
 
-export default class PromotionScreen extends Component {
-    render() {
-        return (
-            <ScrollView style={styles.promotionContainer}>
-                <Image
-                    source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/promotion/promotion1.png' }}
-                    style={styles.homeImage}
-                />
-                <Image
-                    source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/promotion/promotion1.png' }}
-                    style={styles.homeImage}
-                />
-            </ScrollView>
+export default class PromotionScreen extends React.Component {
 
-        );
+    constructor(props){
+        super(props);
+        this.state ={ isLoading: true}
+    }
+
+    componentDidMount(){
+        return fetch('https://www.fastmock.site/mock/1adff00ec21770e22911e12780c3f45a/foodMart/promotionList')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: responseJson.promotionList,
+                }, function(){
+
+                });
+
+            })
+            .catch((error) =>{
+                console.error(error);
+            });
     }
 
 
+
+    render(){
+
+        if(this.state.isLoading){
+            return(
+                <View style={{flex: 1, padding: 20}}>
+                    <ActivityIndicator/>
+                </View>
+            )
+        }
+
+        return(
+            <View style={{flex: 1, paddingTop:20}}>
+                <FlatList
+                    data={this.state.dataSource}
+                    renderItem={({item}) =>
+                        <Image style={styles.poster} source={{uri: item}}
+
+                        />
+
+                    }
+                    keyExtractor={(item, index) => item.id}
+                />
+            </View>
+        );
+    }
 }
 
-
 const styles = StyleSheet.create({
-    promotionContainer:{
-        flexDirection: 'column',
-        flex: 1
-    },
-    homeImage:{
-        height: 250,
-        // flex: 1,
-        // alignItems: 'center',
-        // justifyContent: 'center'
-        width: 200
-    },
-
-
-
+    poster:{
+        height: 680,
+        margin: 10
+    }
 });

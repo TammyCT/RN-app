@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React from 'react';
+import {FlatList, ActivityIndicator, Text, View, StyleSheet} from 'react-native';
+import  {Avatar} from 'react-native-elements';
+import {EasyLoading, Loading} from '../../ui-library/loading'
 
-
-
-export default class FriendComponent extends Component {
-
+export default class FriendComponent extends React.Component {
 
     constructor(props){
         super(props);
-        this.state ={ isLoading: true}
+        this.state ={ isLoading: true};
+        EasyLoading.show();
     }
 
-    componentDidMount(){
+        componentWillMount(){
         return fetch('https://www.fastmock.site/mock/1adff00ec21770e22911e12780c3f45a/foodMart/friends')
             .then((response) => response.json())
             .then((responseJson) => {
@@ -20,7 +20,7 @@ export default class FriendComponent extends Component {
                     isLoading: false,
                     dataSource: responseJson.friends,
                 }, function(){
-                        console.log(this.state.dataSource)
+                        EasyLoading.dismiss()
                 });
 
             })
@@ -29,15 +29,23 @@ export default class FriendComponent extends Component {
             });
     }
 
-    render(){
-        return (
-            <View>
-                {
-                    this.state.dataSource && this.state.dataSource.map((item)=>{
-                        <Text>{item.name}</Text>
 
-                    })
-                }
+
+    render(){
+        return(
+            <View style={styles.friendContainer}>
+                <FlatList style={styles.flatListContainer}
+                    data={this.state.dataSource}
+                    renderItem={({item}) =>
+                                <View style={styles.dataList}>
+                                    <Avatar
+                                        rounded
+                                        source={{uri:item.avatar,}}
+                                    />
+                                    <Text style={styles.friendText}>{item.name}</Text>
+                                </View>}
+                />
+                <Loading/>
             </View>
         );
     }
@@ -45,5 +53,24 @@ export default class FriendComponent extends Component {
 }
 
 const styles = StyleSheet.create({
+    friendContainer:{
+        flex: 1,
 
-})
+    },
+
+    flatListContainer : {
+        // margin: 20,
+        // backgroundColor: 'red'
+    },
+    dataList:{
+        height: 50,
+        borderBottomWidth: 2,
+        borderColor: '#DDDDDD',
+        paddingLeft: 10,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    friendText:{
+        marginLeft:10
+    }
+});
