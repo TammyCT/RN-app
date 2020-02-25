@@ -29,6 +29,7 @@ export default class FriendComponent extends React.Component {
             });
     }
 
+    _keyExtractor = (item, index) => index;
 
 
     render(){
@@ -36,7 +37,8 @@ export default class FriendComponent extends React.Component {
             <View style={styles.friendContainer}>
                 <FlatList style={styles.flatListContainer}
                     data={this.state.dataSource}
-                    renderItem={({item}) =>
+                          keyExtractor={this._keyExtractor}
+                          renderItem={({item}) =>
                                 <View style={styles.dataList}>
                                     <Avatar
                                         rounded

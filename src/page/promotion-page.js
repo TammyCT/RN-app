@@ -25,6 +25,7 @@ export default class PromotionScreen extends React.Component {
             });
     }
 
+    _keyExtractor = (id) => id;
 
 
     render(){
@@ -41,13 +42,13 @@ export default class PromotionScreen extends React.Component {
             <View style={{flex: 1, paddingTop:20}}>
                 <FlatList
                     data={this.state.dataSource}
+                    keyExtractor={this._keyExtractor}
                     renderItem={({item}) =>
                         <Image style={styles.poster} source={{uri: item}}
 
                         />
 
                     }
-                    keyExtractor={(item, index) => item.id}
                 />
             </View>
         );
