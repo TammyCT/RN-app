@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import {Text, View, ScrollView, ActivityIndicator, StyleSheet} from 'react-native';
-import {Image} from 'react-native-elements'
+import {Text, View, ScrollView, ActivityIndicator, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image} from 'react-native-elements';
+import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import LazyLoadingBar from '../../ui-library/lazy-loading-bar'
+
 
 export default class ProductComponent extends Component {
     constructor () {
@@ -74,13 +77,12 @@ export default class ProductComponent extends Component {
                 automaticallyAdjustContentInsets={false}
                 showsVerticalScrollIndicator={false}
                 scrollsToTop={true}>
-
                 {
                      this.state.list.map((item,index)=>{
                         return item;
                     })
                 }
-
+                <LazyLoadingBar reachBottom={this.state.reachBottom}/>
             </ScrollView >
         );
     }
@@ -89,14 +91,21 @@ export default class ProductComponent extends Component {
         return(
             this.state.dataSource[loadPageNumber].map((item,index)=>{
                 return(
-                    <View key={index} style={styles.itemContainer}>
+                    <TouchableOpacity style={styles.itemContainer} key={index}>
                         <Image
                             source={{ uri: item.pic }}
                             style={{ width: 200, height: 200 }}
                             PlaceholderContent={<ActivityIndicator />}
                         />
-                        <Text>{item.name}</Text>
-                    </View>
+                        <View style={styles.itemDetail}>
+                            <Text style={styles.itemText}>{item.name}</Text>
+                            <View style={styles.itemDetailBtn}>
+                                <Text style={styles.itemDetailText}>More Details</Text>
+                                <MIcon name={'chevron-right'} size={30} color={'#23B2BE'}/>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+
                 )
             })
         )
@@ -135,8 +144,27 @@ const styles = StyleSheet.create({
     itemContainer: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent:'flex-start'
+        justifyContent:'flex-start',
+        margin: 5
     },
+    itemDetail:{
+        marginLeft: 10,
+        marginRight: 10,
+        flex: 1
+    },
+    itemText: {
+        fontSize: 22
+    },
+    itemDetailText:{
+        marginBottom: 10,
+        color: '#23B2BE'
+    },
+    itemDetailBtn: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+    }
 });
 
 
