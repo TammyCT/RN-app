@@ -15,7 +15,7 @@ import InboxPage from './page/center-sub-page/inbox-page';
 import SettingPage from './page/center-sub-page/settings-page';
 import GroupPage from './page/home-sub-page/group-page';
 import NewsPage from './page/home-sub-page/news-page';
-import ProductPage from './page/home-sub-page/product-knowledge-page';
+import ProductPage from './page/home-sub-page/product-page';
 import StoreListPage from './page/home-sub-page/store-list-page';
 
 import StackScreen from './ui-library/stack-screen'
@@ -38,7 +38,7 @@ const PAGE_INFO = {
             component: NewsPage
         },
         {
-            title: 'Product Knowledge',
+            title: 'Product',
             name: 'product',
             component: ProductPage
         },

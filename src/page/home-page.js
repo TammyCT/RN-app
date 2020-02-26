@@ -3,9 +3,9 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { ActivityIndicator } from 'react-native';
 import { Image, Avatar } from 'react-native-elements';
 
-export default class HomeComponent extends Component {
+// export default class HomeComponent extends Component {
 
-    render() {
+export default function HomeScreen({navigation}) {
         return (
             <ScrollView>
                 <Image
@@ -19,7 +19,7 @@ export default class HomeComponent extends Component {
                             size= "large"
                             source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/location.png'}}
                             rounded
-                            onPress={() => this.accessTo('store-list')}
+                            onPress={() => navigation.navigate('store')}
                             activeOpacity={0.7}
                             />
                             <Text style={styles.childItem}>Store List</Text>
@@ -29,17 +29,17 @@ export default class HomeComponent extends Component {
                             size= "large"
                             source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/food.png'}}
                             rounded
-                            onPress={() => this.accessTo('product-knowledge')}
+                            onPress={() => navigation.navigate('product')}
                             activeOpacity={0.7}
                             />
-                        <Text style={styles.childItem}>Product Knowledge</Text>
+                        <Text style={styles.childItem}>Product</Text>
                     </View>
                     <View style={styles.child}>
                         <Avatar
                             size= "large"
                             source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/news.jpg'}}
                             rounded
-                            onPress={() => this.accessTo('news')}
+                            onPress={() => navigation.navigate('news')}
                             activeOpacity={0.7}
                         />
                         <Text style={styles.childItem}>News</Text>
@@ -49,7 +49,7 @@ export default class HomeComponent extends Component {
                             size= "large"
                             source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/group.jpeg'}}
                             rounded
-                            onPress={() => this.accessTo('group')}
+                            onPress={() => navigation.navigate('group')}
                             activeOpacity={0.7}
                         />
                         <Text style={styles.childItem}>Group</Text>
@@ -68,12 +68,12 @@ export default class HomeComponent extends Component {
         );
     }
 
-    accessTo(ev){
+function  accessTo(ev){
         console.log(ev);
     }
 
 
-}
+// }
 
 
 const styles = StyleSheet.create({
