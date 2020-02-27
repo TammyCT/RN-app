@@ -22,12 +22,12 @@ export default class ProductComponent extends Component {
     componentDidMount(){
         this.getData().then(()=>{
             this.setNewData();
-            console.log(this.state.currentPage)
+            // console.log(this.state.currentPage)
         })
     }
 
     setNewData(){
-        console.log('now:'+this.state.currentPage)
+        // console.log('now:'+this.state.currentPage)
         if(this.state.reachBottom){
             return;
         }
@@ -122,7 +122,7 @@ export default class ProductComponent extends Component {
         let originScrollHeight = e.nativeEvent.layoutMeasurement.height; //scrollView高度
         let _currentPage = this.state.currentPage;
         if (offsetY + originScrollHeight >= contentSizeHeight){
-            console.log('上传滑动到底部事件');
+            // console.log('上传滑动到底部事件');
             if(this.state.currentPage < this.state.dataSource.length-1){
                 this.setState({
                     currentPage : _currentPage+1

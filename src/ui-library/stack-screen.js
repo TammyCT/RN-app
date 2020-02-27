@@ -19,6 +19,7 @@ export default class ProfileListComponent extends Component {
                             },
                             headerTintColor: '#fff',
                         }}
+                        key='index'
                         name={item.name} component={item.component} />
 
                 ))}
