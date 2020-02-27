@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 import HomePage from './page/home-page';
 import MyProfilePage from './page/my-profile-page';

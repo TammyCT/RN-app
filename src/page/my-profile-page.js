@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import {StyleSheet, View, TouchableHighlight, Text, DeviceEventEmitter} from 'react-native';
 import { Button } from 'react-native-elements';
 import List from '../ui-library/profile-list';
+import UserInfo from './information-page/profile-user-info'
 
 let nav;
 let userInfo;
 
-function accessToLoginPage(navigation){
-    console.log(navigation)
-    navigation.navigate('Login / Sign Up')
-}
 
 function accessTo(pageName) {
     nav.navigate(pageName)
@@ -24,45 +21,17 @@ function getUserInfo() {
     });
 };
 
-function showMain() {
-
-}
-
 
 export default function ProfileCenterScreen({navigation}) {
     nav = navigation;
     getUserInfo();
-    let test1;
 
-    if(userInfo){
-        test1 = (
-            {/*<Text>ggg</Text>*/}
-        )
-    }else{
-        test1 = (
-            <View>
-                <Button
-                    buttonStyle={{backgroundColor: '#23B2BE'}}
-                    title="Login / Sign Up"
-                    onPress={() => accessToLoginPage(navigation)}
-                />
-            </View>
-
-        )
-    }
     return (
         <View style={styles.container}>
 
-            <View style={styles.btnContainer}>
-                {/*{*/}
-                {/*    !userInfo &&*/}
-                {/*    <Button*/}
-                {/*        buttonStyle={{backgroundColor: '#23B2BE'}}*/}
-                {/*        title="Login / Sign Up"*/}
-                {/*        onPress={() => accessToLoginPage(navigation)}*/}
-                {/*    />*/}
-                {/*}*/}
-                {test1}
+            <View>
+
+                <UserInfo navigation={navigation}/>
             </View>
             <View style={styles.listContainer}>
                 <List key="1" iconName='account-multiple' color='#ffcc00' content='My Friends' pageName='friend' accessTo= {accessTo.bind(this)}/>
@@ -83,12 +52,7 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         flex: 1,
     },
-    btnContainer: {
-        backgroundColor: '#ffffff',
-        justifyContent: "center",
-        alignItems: "center",
-        height: 150,
-    },
+
     listContainer: {
         backgroundColor: '#ffffff',
         flexDirection: 'column',
