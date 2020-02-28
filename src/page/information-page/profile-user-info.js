@@ -44,7 +44,8 @@ export default class ProfileUserInfoComponent extends Component {
             <View style={styles.infoContainer}>
                     <View style={styles.imageContainer}>
                         <Image
-                            source={{ uri: this.state.userInfo.avatar }}
+                            // source={{ uri: this.state.userInfo.avatar }}
+                            source={require('../../../assets/avatar.jpeg')}
                             style={{ width: 100, height: 100 }}
                             PlaceholderContent={<ActivityIndicator />}
                         />

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {Text, View, ScrollView, ActivityIndicator, StyleSheet, TouchableOpacity} from 'react-native';
 import {Image} from 'react-native-elements';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import LazyLoadingBar from '../../ui-library/lazy-loading-bar'
+import LazyLoadingBar from '../../ui-library/lazy-loading-bar';
+
+var pic1 = require('../../../assets/product/ArgentinePrawn.jpeg')
 
 
 export default class ProductComponent extends Component {
@@ -110,6 +112,7 @@ export default class ProductComponent extends Component {
             })
         )
     }
+
 
 
     _onRefreshData(){

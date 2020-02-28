@@ -24,18 +24,22 @@ function setHomeScreen(navigation,carouseData){
     return (
         <ScrollView>
             <Image
-                source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/carousel/c1.jpeg' }}
+                // source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/carousel/c1.jpeg' }}
+                source={require('../../assets/carousel/c1.jpeg')}
                 style={styles.homeImage}
             />
             {/*<View style={styles.homeImage}>*/}
             {/*    /!*<Carousel carouseData={carouseData} />*!/*/}
             {/*</View>*/}
             {/*<Text style={styles.imgText}>XXXXX XXXXX XXXXX</Text>*/}
+
             <View style={styles.optionBox}>
                 <View style={styles.child}>
+                    {/*<Image style={{height: 30}} source={require('../../assets/home-page/news.png')}/>*/}
+
                     <Avatar
                         size= "large"
-                        source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/location.png'}}
+                        source={require('../../assets/home-page/location.png')}
                         rounded
                         onPress={() => navigation.navigate('store')}
                         activeOpacity={0.7}
@@ -45,7 +49,7 @@ function setHomeScreen(navigation,carouseData){
                 <View style={styles.child}>
                     <Avatar
                         size= "large"
-                        source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/food.png'}}
+                        source={require('../../assets/home-page/food.png')}
                         rounded
                         onPress={() => navigation.navigate('product')}
                         activeOpacity={0.7}
@@ -55,7 +59,8 @@ function setHomeScreen(navigation,carouseData){
                 <View style={styles.child}>
                     <Avatar
                         size= "large"
-                        source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/news.jpg'}}
+                        source={require('../../assets/home-page/news.jpg')}
+
                         rounded
                         onPress={() => navigation.navigate('news')}
                         activeOpacity={0.7}
@@ -65,7 +70,8 @@ function setHomeScreen(navigation,carouseData){
                 <View style={styles.child}>
                     <Avatar
                         size= "large"
-                        source={{uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/group.jpeg'}}
+                        source={require('../../assets/home-page/group.jpeg')}
+
                         rounded
                         onPress={() => navigation.navigate('group')}
                         activeOpacity={0.7}
@@ -74,11 +80,14 @@ function setHomeScreen(navigation,carouseData){
                 </View>
             </View>
             <Image
-                source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/food1.jpeg' }}
+                // source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/food1.jpeg' }}
+                source={require('../../assets/home-page/food1.jpeg')}
                 style={styles.homeImage}
             />
             <Image
-                source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/food2.jpeg' }}
+                // source={{ uri: '/Users/huangchuting/Desktop/projects/RN project/MyApp/assets/home-page/food2.jpeg' }}
+                source={require('../../assets/home-page/food2.jpeg')}
+
                 style={styles.homeImage}
             />
         </ScrollView>

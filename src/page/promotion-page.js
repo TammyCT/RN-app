@@ -1,5 +1,7 @@
 import React from 'react';
-import {FlatList, ActivityIndicator, Text, View, Image, StyleSheet} from 'react-native';
+import {FlatList, ActivityIndicator, Text, View, Image, StyleSheet, ScrollView} from 'react-native';
+
+
 
 export default class PromotionScreen extends React.Component {
 
@@ -38,19 +40,40 @@ export default class PromotionScreen extends React.Component {
             )
         }
 
+        // return(
+        //     <View style={{flex: 1, paddingTop:20}}>
+        //         <FlatList
+        //             data={this.state.dataSource}
+        //             keyExtractor={this._keyExtractor}
+        //             renderItem={({item}) =>
+        //                 <Image style={styles.poster}
+        //                        source={{uri: item}}
+        //
+        //                 />
+        //
+        //             }
+        //         />
+        //     </View>
+        // );
+
+        //for iphone mock
+
         return(
-            <View style={{flex: 1, paddingTop:20}}>
-                <FlatList
-                    data={this.state.dataSource}
-                    keyExtractor={this._keyExtractor}
-                    renderItem={({item}) =>
-                        <Image style={styles.poster} source={{uri: item}}
+            <ScrollView style={{flex: 1, paddingTop:20}}>
 
-                        />
-
-                    }
+                <Image style={styles.poster}
+                       source={require('../../assets/promotion/promotion4.jpg')}
                 />
-            </View>
+                <Image style={styles.poster}
+                       source={require('../../assets/promotion/promotion1.png')}
+                />
+                <Image style={styles.poster}
+                       source={require('../../assets/promotion/promotion2.jpg')}
+                />
+                <Image style={styles.poster}
+                       source={require('../../assets/promotion/promotion3.jpg')}
+                />
+            </ScrollView>
         );
     }
 }
@@ -58,6 +81,8 @@ export default class PromotionScreen extends React.Component {
 const styles = StyleSheet.create({
     poster:{
         height: 680,
-        margin: 10
+        margin: 10,
+        //for mock
+        width: 350
     }
 });
